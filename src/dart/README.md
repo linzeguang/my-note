@@ -1,5 +1,6 @@
 # Dart 语言特点
-``` dart
+
+```dart
 // 1、单进程异步事件模式
 // 2、强类型，可以类型推断
 // 3、DartVM，具有极高的运行效率和优秀的代码运行优化
@@ -11,16 +12,19 @@
 // 9、全平台语言，可以很好的胜任移动和前后端的开发
 // 10、在语法上，Dart提供了很多便捷的操作，可以明显减少代码量。如字符串拼接
 ```
-``` javascript
-const test1 = 'my name is ' + name + ' age is ' + age
-const test2 = `my name is ${name} age is ${age}`
+
+```javascript
+const test1 = "my name is " + name + " age is " + age;
+const test2 = `my name is ${name} age is ${age}`;
 ```
-``` dart
+
+```dart
 String test = 'my name is $name, age is $age'
 ```
 
 # 变量与常量
-``` dart
+
+```dart
 // 常量
 const c = 1 // 值不变，一开始就得赋值
 
@@ -35,8 +39,10 @@ var v2 = 1 // 初始值指定值类型为number
 v2 = 2 // 正确
 v2 = 'fghjkl' // A value of type 'String' can't be assigned to a variable of type 'int'.
 ```
+
 ## dynamic ，var、object 三种类型的区别
-``` dart
+
+```dart
 // dynamic: 所有dart 对象的基础类型，在大多数情况下，不直接使用它
 // 通过它定义的变量会关闭类型检查，这意味着 dynamix x= 'hal'; x.foo();
 // 这段代码静态类型检查不会报错，但是运行时会crash，因为 x 并没有 foo() 方法，所以建议大家在编程时不要直接使用dynamic；
@@ -45,8 +51,10 @@ v2 = 'fghjkl' // A value of type 'String' can't be assigned to a variable of typ
 // 因为 Object 提供了这些方法，但是如果你尝试调用 o.foo() 时，静态类型检查会运行报错。
 // 综上不难看出 dynamic 与 object 的最大的区别是在静态类型检查上。
 ```
+
 ## final 和 const 类型的区别
-``` dart
+
+```dart
 // final 只能在初始化时或后续赋值一次，之后值不可以修改
 // const 只能在初始化时赋值一次，而且应该是在非运行时赋值
 // 例如
@@ -66,7 +74,9 @@ void main() {
 ```
 
 # 内置类型
+
 ### number 数字类型
+
 ```dart
 // int 整数
 // double 浮点数
@@ -80,12 +90,35 @@ print(a1.toDouble()) // 1.0
 // double 类型可以通过 toInt 转化为整数
 print(a2.toInt()) // 1.0
 ```
+
 #### 属性
-``` dart
+
+```dart
 int a = 2
 
 ```
+
 #### num.parse 函数允许将数字字符串解析为整型
+
 ```dart
 print(num.parse('10.9')) // 10.9
+```
+
+### string 字符串类型
+
+```dart
+var srt = "hello"
+String str1 = 'hello'
+String str2 = "hello"
+// '''三个单引号可以输入换行的字符串
+String str3 = '''
+  hello,
+  hi,
+'''
+String str4 = "$str1 and $str2"  // 输出 hello and hello
+String str5 = "$str1 and /n $str2"
+// 输出
+// hello
+//  and hello
+String str5 = r"$str1 and /n $str2" // 输出 hello and /n hello
 ```
