@@ -1,8 +1,8 @@
-import { hasStringify } from "../utils";
+import { hasStringify } from "./utils";
 import {
   StorageBootStrapConfig,
   StorageSaveFormat,
-} from "../typings/webStorage";
+} from "./typings/webStorage";
 
 export default class CustomStorage {
   private readStorage: Storage;
