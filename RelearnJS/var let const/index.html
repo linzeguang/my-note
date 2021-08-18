@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log(">>>>>>>>>>>>>>>>>> var <<<<<<<<<<<<<<<<<<<");
+      console.log("<<使用 var 操作符定义的变量会成为包含它的函数的局部变量>>");
+      function test() {
+        // var message = "hi"; // 局部变量
+
+        message = "hi"; // 全局变量
+      }
+      test();
+      console.log(message); // 出错！message is not defined
+
+      console.log("<<使用var声明的变量会自动提升到函数作用域顶部>>");
+      function foo() {
+        console.log(age); // undefined
+        var age = 26;
+      }
+      foo();
+      console.log(
+        "这就是所谓的“提升”（hoist），也就是把所有变量声明都拉到函数作用域的顶部"
+      );
+
+      console.log(">>>>>>>>>>>>>>>>>> let <<<<<<<<<<<<<<<<<<<");
+      console.log(
+        "<<let 声明的范围是块作用域，而 var 声明的范围是函数作用域。>>"
+      );
+      // if (true) {
+      //   var name = "Matt";
+      //   console.log(name); // Matt
+      // }
+      // console.log(name); // Matt
+
+      // var age = 28;
+      // if (true) {
+      //   // console.log(age); // ReferenceError: Cannot access 'age' before initialization
+      //   let age = 26;
+      //   console.log(age); // 26
+      // }
+      // console.log(age); // ReferenceError: age 没有定义
+      console.log("<<let 也不允许同一个块作用域中出现冗余声明>>");
+      // var name;
+      // var name;
+      // let age;
+      // let age; // SyntaxError；标识符 age 已经声明过了
+      console.log("<<let 声明的变量不会在作用域中被提升>>");
+      // name 会被提升
+      console.log(name); // undefined
+      var name = "Matt";
+      // age 不会被提升
+      // console.log(age); // ReferenceError：age 没有定义
+      let age = 26;
+
+      console.log(
+        "<<使用 let 在全局作用域中声明的变量不会成为 window 对象的属性（var 声明的变量则会）>>"
+      );
+    </script>
+  </body>
+</html>
